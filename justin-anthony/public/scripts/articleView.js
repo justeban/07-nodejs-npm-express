@@ -75,7 +75,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
-// PUT YOUR RESPONSE HERE
+// initNewArticlePage is called on new.html on page load . Once the function is invoked, it shows the new body content of the new.html and hides the JSON export field, then it listens for event changes.
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
   $('#export-field').hide();
@@ -88,7 +88,7 @@ articleView.initNewArticlePage = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// articleView.create is called in the articleView.initNewArticlePage function. It is triggered by any change in the text fields of the new article page.
 articleView.create = () => {
   let article;
   $('#articles').empty();
@@ -113,7 +113,7 @@ articleView.create = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+//The function is called after the articleView.create within the articleView.initNewArticlePage function. It is ultimately triggered by the clicking of the 'submit' button.
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -128,11 +128,11 @@ articleView.submit = event => {
   // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
   // PUT YOUR RESPONSE HERE
   article.insertRecord();
-}
+};
 
 articleView.initIndexPage = () => {
   Article.all.forEach(article =>{
-    $('#articles').append(article.toHtml())
+    $('#articles').append(article.toHtml());
   });
 
   articleView.populateFilters();
